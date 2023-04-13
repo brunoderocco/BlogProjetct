@@ -85,25 +85,3 @@ export const Home = () => {
   );
 
 }
-
-/*
-export class HomeII extends Component {
-
-
-  async componentDidMount() {
-    await this.loadPosts();
-  };
-
-  
-
-  
-
-  
-  render() {
-
-
-
-  }
-
-}
- */
