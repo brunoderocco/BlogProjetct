@@ -3,8 +3,7 @@ import './styles.css';
 
 import { PostCard } from '../postcard';
 
-export const Posts = (props) => {
-  const posts = props.posts;
+export const Posts = ({ posts = [] }) => {
   return (
     <div className='posts'>
       {posts.map(post => (
