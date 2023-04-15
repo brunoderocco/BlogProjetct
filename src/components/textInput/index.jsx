@@ -1,14 +1,21 @@
-import './styles.css'
+import P from 'prop-types';
+import './styles.css';
 
 export const TextInput = ({ searchFor, handleChange }) => {
   return (
-    <div >
+    <div>
       <input
-        className='input'
+        className="input"
         onChange={handleChange}
         value={searchFor}
         type="search"
-        placeholder='type your search' />
+        placeholder="type your search"
+      />
     </div>
   );
-}
+};
+
+TextInput.propTypes = {
+  searchFor: P.string,
+  handleChange: P.func.isRequired,
+};

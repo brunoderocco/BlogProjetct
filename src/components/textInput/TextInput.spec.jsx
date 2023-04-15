@@ -32,7 +32,7 @@ describe('<TextInput />', () => {
 
   it('should match snapshop', () => {
     const fn = jest.fn();
-    const { container } = render(<TextInput handleChange={fn} />);
+    const { container } = render(<TextInput handleChange={fn} searchFor=' ' />);
     expect(container.firstChild).toMatchSnapshot();
   });
 }); 

@@ -5,7 +5,8 @@ const { render, screen, fireEvent } = require('@testing-library/react');
 
 describe('<Button />', () => {
   it('should render the button with the text "Load More Posts"', () => {
-    render(<Button />);
+    const fn = jest.fn();
+    render(<Button onClick={fn} />);
 
     expect.assertions(2);
 
@@ -23,7 +24,8 @@ describe('<Button />', () => {
   });
 
   it('should be disabled when disable is True', () => {
-    render(<Button disabled={true} />);
+    const fn = jest.fn();
+    render(<Button onClick={fn} disabled={true} />);
     const button = screen.getByRole('button', { name: /load more posts/i });
     expect(button).toBeDisabled();
   });

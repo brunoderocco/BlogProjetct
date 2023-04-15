@@ -11,7 +11,7 @@ describe('<PostCard />', () => {
 
     expect(screen.getByRole('img', { name: props.title }))
       .toHaveAttribute('src', 'img/img.png');
-    expect(screen.getByRole('heading', { name: 'title test' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /title test/i })).toBeInTheDocument();
     expect(screen.getByText('body test')).toBeInTheDocument();
 
   });

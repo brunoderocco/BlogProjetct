@@ -6,7 +6,7 @@ exports[`<TextInput /> should match snapshop 1`] = `
     class="input"
     placeholder="type your search"
     type="search"
-    value=""
+    value=" "
   />
 </div>
 `;
