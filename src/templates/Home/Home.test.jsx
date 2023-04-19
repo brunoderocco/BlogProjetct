@@ -14,21 +14,21 @@ const handlers = [
           "id": 1,
           "title": "title 1",
           "body": "body 1",
-          "url": "img 1"
+          "url": "img 1",
         },
         {
           "userId": 2,
           "id": 2,
           "title": "title 2",
           "body": "body 2",
-          "url": "img 2"
+          "url": "img 2",
         },
         {
           "userId": 3,
           "id": 3,
           "title": "title 3",
           "body": "body 3",
-          "url": "img 3"
+          "url": "img 3",
         },
       ]),
     );
@@ -54,8 +54,14 @@ describe('<Home />', () => {
     render(<Home />);
     const noMorePosts = screen.getByText('No posts found! =/');
 
+    //expect.assertions(1);
+
     await waitForElementToBeRemoved(noMorePosts);
-    screen.debug();
+
+    const search = screen.getByPlaceholderText(/Type your search/i);
+    expect(search).toBeInTheDocument();
+
+
 
   });
 });
