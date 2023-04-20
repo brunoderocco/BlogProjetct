@@ -3,7 +3,7 @@ import { setupServer } from "msw/node";
 
 import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
 import { Home } from '.';
-import { wait } from '@testing-library/user-event/dist/utils';
+//import { wait } from '@testing-library/user-event/dist/utils';
 
 const handlers = [
   rest.get('*jsonplaceholder.typicode.com/*', async (req, res, ctx) => {
@@ -54,14 +54,18 @@ describe('<Home />', () => {
     render(<Home />);
     const noMorePosts = screen.getByText('No posts found! =/');
 
-    //expect.assertions(1);
+    expect.assertions(3);
 
     await waitForElementToBeRemoved(noMorePosts);
 
     const search = screen.getByPlaceholderText(/Type your search/i);
     expect(search).toBeInTheDocument();
 
+    const images = screen.getAllByRole('img', { name: /title/i });
+    expect(images).toHaveLength(3);
 
+    const button = screen.getByRole('button', { name: /Load More Posts/i });
+    expect(button).toBeInTheDocument();
 
   });
 });
