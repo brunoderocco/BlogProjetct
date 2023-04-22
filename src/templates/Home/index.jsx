@@ -10,13 +10,13 @@ import { TextInput } from '../../components/textInput';
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
-  const [page, setPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [page, setPage] = useState(0);
+  const [postsPerPage, setPostsPerPage] = useState(2);
   const [searchFor, setSearchFor] = useState('');
 
   const noMorePosts = postsPerPage >= allPosts.length;
 
-  const filteredPosts = searchFor
+  const filteredPosts = searchFor.length < 2
     ? posts
     : allPosts.filter((post) => {
       return post.title.toLowerCase().includes(searchFor.toLowerCase());
@@ -45,7 +45,6 @@ export const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log('oi');
     handleloadPosts(page, postsPerPage);
   }, [handleloadPosts, page, postsPerPage]);
 
